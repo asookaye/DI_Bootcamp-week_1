@@ -5,9 +5,6 @@ div + p{
     background-color: yellow;
     text-decoration: underline;
   }
-  body{ 
-   /** background-image: url("picture.jpg")**/
-}
 
 div span {
     height: 10rem;
