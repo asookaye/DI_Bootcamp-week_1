@@ -11,7 +11,7 @@ body {
   #login-button{
     position: absolute;
     display: block;
-    top: 30vh;
+    top: 27vh;
     left: 0;
     right: 0;
     bottom: 0;
@@ -80,8 +80,8 @@ body {
     padding: 0 0rem;
 }
 label input.box {
+  display: inline;
   float: left !important;
-  display: inline-block;
   width: 1rem !important;
   padding: 0 1rem;
   margin: 0 .5rem;
