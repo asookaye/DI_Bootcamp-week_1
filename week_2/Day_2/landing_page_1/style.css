@@ -2,114 +2,72 @@ body {
     background-color: var(--light-color--);
     margin: 0;
 }
-header {
-    width: 100%;
-    height: 70vh;
-    background-image:url(header.jpg);
-    position: relative;
-    color: var(--light-color--);
+
+h1 {
     text-align: center;
-    align-items: center;
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 0;
-}
-header:before {
-    content: "";
-    height: 70vh;
-    width: 100%;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom: 0;
-    display:block;
-    z-index: -1;
-    background-image: linear-gradient(1deg, rgb(0 0 0 / 67%), rgb(43 41 163 / 41%));
-}
-header h1 {
-    display: block;
-    text-align: left;
     margin-bottom: 1rem;
     letter-spacing: 2px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    color: var(--light-color--);
-}
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 4rem;
-    background-color: var(--light-color--);
-    z-index: 2;
-    box-shadow: 1px 2px 4px 3px rgb(51 51 51 / 29%);
-}
-nav span {
-    font-size: 1.6rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-align: left;
-    margin: 1rem;
-    max-width: 15rem;
-    display: inline-block;
-    color: rgb(56, 56, 56);
-}
-button {
-    background-color: var(--blue-color--);
-    color: var(--light-color--);
-    width: auto;
-    margin: .4rem 2rem;
-    font-size: 1rem;
-    border-radius: 3px;
-    border: 0;
-    padding: 1rem 1.5rem;
-    float: right;
+    color: var(--dark-color--);
 }
 
-form {
-    display: inline-block;
+.grid {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    grid-template-areas: "title title title"
+                        "amount amount amount"
+                        "panel panel panel"
+                        "panel panel panel";
 }
-input {
-    width:30vw;
-    padding: 0.6rem 1rem;
-    border-radius: 3px;
-    border: navajowhite;
-    box-shadow: rgb(193 193 193 / 37%) 0px -1px 2px 2px;
-    writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: fieldtext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    appearance: auto;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
+.title {
+    grid-area: title;
 }
-header button{
-    float: none;
-    display: inline-block;
-    margin: 1rem;
-    padding: 0.7rem 1rem;
-    font-size: .9rem;
+.amount-row {
+    display: grid;
+    grid-area: amount;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "a b c";
+}
+.block-1 {
+    grid-area: a;
+    display: grid;
+    justify-content: center;
+}
+.block-2 {
+    grid-area: b;
+    display: grid;
+    justify-content: center;
+}
+.block-3 {
+    grid-area: c;
+    display: grid;
+    justify-content: center;
 }
 
-aside {
-    max-width: 65em;
-    display: block;
-    margin: 3em auto;
-    text-align: center;
+.panel-row {
+    display: grid;
+    grid-area: panel;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:"a1 . a3"
+                        "a1 a2 a3" 
+                        "a1 a2 a3";
+}
+.panel-row.panel.a1 {
+    grid-area: a1;
+}
+.panel-row.panel.a2 {
+    grid-area: a2;
+}
+.panel-row.panel.a3 {
+    grid-area: a3;
 }
 div.panel {
-    width: 26%;
     display: inline-block;
     vertical-align: top;
     padding: 2rem;
@@ -126,13 +84,32 @@ div.panel h2 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
     text-align: center;
+    color: var(--light-color--);
 }
-div.panel p {
+h2.num {
+    font-size: 3.1rem;
+    color: #1d1d1d;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+div.panel p, p {
     letter-spacing: 2px;
     font-size: 1rem;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     line-height: 1.6;
+}
+.bg1 {
+ padding: 1.5rem 1rem;
+ background-color: var(--blue-color--);
+}
+.bg-2 {
+    padding: 1.5rem 1rem;
+    background-color: rgb(231, 31, 31);
+   }
+.bg-3 {
+padding: 1.5rem 1rem;
+background-color: rgb(23, 173, 23);
 }
 
 :root {
@@ -190,66 +167,17 @@ sub {
 }
 /**media Query**/
 @media only screen and (max-width: 600px) {
-    nav span {
-        font-size: 1.1rem;
-        max-width: 7rem;
-    }
-    input {
-        width: 40vw;
-        padding: 0.6rem 1rem;
-    }
-    header h1 {
-        font-size: 1.25rem;
-        padding: 1rem;
-    }
-    header h1 br {
-        display: none;
-    }
-    div.panel {
-        width: 70%;
-    }
-    footer ul {
-        display: none;
-    }
+
 }
 
 @media only screen and (min-width: 601px) {
-    nav span {
-        font-size: 1.35rem;
-        max-width: 11rem;
-    }
-    input {
-        width: 40vw;
-        padding: 0.6rem 1rem;
-    }
-    header h1 {
-        font-size: 1.6rem;
-        padding: 1rem;
-    }
-    div.panel {
-        width: 40%;
-    }
+   
 }
 
 @media only screen and (min-width: 1024px) {
-    nav span {
-        font-size: 1.4rem;
-        max-width: 15rem;
-    }
-    input {
-        width: 40vw;
-        padding: 0.6rem 1rem;
-    }
-    header h1 {
-        font-size: 2.2rem;
-        padding: 1rem;
-    }
-    div.panel {
-        width: 26%;
-    }
+   
+    
 }
 @media only screen and (min-width: 1440px) {
-    input {
-        width: 27vw;
-    }
+    
 }
